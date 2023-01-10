@@ -15,5 +15,7 @@ class UserTestCase(TestCase):
 
     def test_root_response(self):
         response = self.client.get("/", headers={"Content-Type": "application/json"},)
+        self.assertEqual(response.status_code, 200)
 
+        post_response = self.client.post("/", headers={"Content-Type": "application/json"},)
         self.assertEqual(response.status_code, 200)
